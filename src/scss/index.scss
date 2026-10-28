@@ -1,0 +1,94 @@
+@use './fonts/camphor';
+@use 'reset';
+@use 'colors' as *;
+@use 'breakpoints' as *;
+
+@use '../components/Navbar';
+@use '../components/Hero';
+@use '../components/About';
+@use '../components/Projects';
+@use '../components/Contact';
+@use '../components/Footer';
+
+@font-face {
+  font-family: 'Monaco';
+  src: url('./fonts/monaco-webfont.woff') format('woff');
+}
+
+body {
+  background-color: #f6f9fc;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: 'pnum';
+  font-variant-numeric: proportional-nums;
+}
+
+a {
+  text-decoration: none;
+  color: $purple;
+  transition: 0.1s ease-in-out;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+#topBackground {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 760px;
+  transform: skewY(-12deg);
+  transform-origin: 0;
+  background-color: white;
+  z-index: -999;
+
+  @include mobile {
+    height: 500px;
+  }
+}
+
+.container-lg {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 40px;
+
+  @include mobile {
+    padding: 0 20px;
+  }
+}
+
+.section-title {
+  color: $grey;
+  font-family: 'Camphor', Open Sans, Segoe UI, sans-serif;
+  font-weight: 500;
+  font-size: 1.5em;
+  text-align: center;
+  padding-top: 50px;
+  margin-top: 50px;
+  margin-bottom: 80px;
+
+  @include mobile {
+    margin-bottom: 40px;
+  }
+}
+
+.section-title:after {
+  content: ' ';
+  border: 4px solid $purple;
+  display: block;
+  margin: 0 auto;
+  margin-top: 30px;
+  width: 50px;
+}
+
+
+.certificates-container { max-width: 1000px; margin: 0 auto 120px; padding: 0 24px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; font-family: 'Camphor', Open Sans, Segoe UI, sans-serif; }
+.certificate-card { display: block; padding: 28px; border-radius: 8px; background: #fff; box-shadow: 0 15px 35px rgba(50, 50, 93, 0.10), 0 5px 15px rgba(0, 0, 0, 0.06); color: #32325d; text-decoration: none; transition: transform .15s ease, box-shadow .15s ease; }
+.certificate-card:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(50, 50, 93, 0.14); }
+.certificate-tag { color: #6c63ff; font-size: .8rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+.certificate-card h3 { margin: 18px 0 8px; font-size: 1.35rem; }
+.certificate-card p { color: #6b7280; line-height: 1.5; }
+.certificate-open { display: inline-block; margin-top: 16px; color: #6c63ff; font-weight: 600; }
+.contact-note { text-align: center; color: #6b7280; margin: 0 20px; }
+@media (max-width: 700px) { .certificates-container { grid-template-columns: 1fr; margin-bottom: 70px; } }
